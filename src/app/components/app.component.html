@@ -1,3 +1,4 @@
 <div class="app-component">
-  it's {{temp}}c
+  <span *ngIf="temp">it's {{temp}}c</span>
+  <span *ngIf="!temp">just checking&hellip;</span>
 </div>

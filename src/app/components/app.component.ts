@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public temp: any = '????????????????????';
+  public temp: any = 0;
 
   constructor(private af: AngularFire) {
   }
