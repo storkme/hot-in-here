@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import {Observable} from "rxjs/Observable";
+import {Injectable} from "@angular/core";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDbXrSnkSiAV-CqT1gDY5g0ZMXpK-6w3vg',
@@ -11,6 +12,7 @@ const firebaseConfig = {
   messagingSenderId: '795947221771'
 };
 
+@Injectable()
 export class FbService {
 
   constructor() {
