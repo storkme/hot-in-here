@@ -1,23 +1,20 @@
-import {AngularFire} from 'angularfire2';
-
 import {Component, OnInit} from '@angular/core';
+import {FbService} from "../shared/fb.service";
+
 @Component({
   selector: 'app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   public temp: any = 0;
 
-  constructor(private af: AngularFire) {
+  constructor(private fb: FbService) {
   }
 
   ngOnInit(): void {
-    this.af.database.list('/temps', {query: {limitToLast: 1}})
-      .subscribe((stuff) => {
-        if (stuff.length > 0) {
-          this.temp = stuff[0].v.toFixed(2);
-        }
+    this.fb.stuff()
+      .subscribe((stuff: any) => {
+        this.temp = stuff.v.toFixed(2);
       });
   }
 }
