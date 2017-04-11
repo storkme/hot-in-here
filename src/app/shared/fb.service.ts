@@ -21,7 +21,7 @@ export class FbService {
 
   stuff(): Observable<any> {
     return Observable.create((obs: any) => {
-      let fb = firebase.database().ref('temps').limitToLast(30);
+      let fb = firebase.database().ref('temps').limitToLast(150);
 
       fb.on('child_added', (child) => obs.next(child.val()));
     });
