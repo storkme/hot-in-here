@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
-import {Observable} from "rxjs/Observable";
-import {Injectable} from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDbXrSnkSiAV-CqT1gDY5g0ZMXpK-6w3vg',
@@ -19,11 +19,14 @@ export class FbService {
     firebase.initializeApp(firebaseConfig);
   }
 
-  stuff(): Observable<any> {
+  stuff(): Observable<number> {
     return Observable.create((obs: any) => {
-      let fb = firebase.database().ref('temps').limitToLast(150);
+      let fb = firebase.database().ref('temps').limitToLast(1);
 
-      fb.on('child_added', (child) => obs.next(child.val()));
-    });
+      fb.on('child_added', (child) => {
+        obs.next(child.val().v);
+      });
+    })
+      .share();
   }
 }

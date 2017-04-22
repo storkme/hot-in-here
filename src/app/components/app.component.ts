@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     this.stuff = this.fb.stuff();
     this.stuff
       .subscribe((stuff: any) => {
-        this.temp = stuff.v.toFixed(2);
+        this.temp = stuff.toFixed(2);
       });
   }
 }
