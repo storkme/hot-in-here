@@ -1,9 +1,10 @@
-import { select, axisBottom, axisLeft, line, extent } from 'd3';
+import { select } from 'd3-selection';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { line } from 'd3-shape';
 import { scaleLinear, scaleTime } from 'd3-scale';
-import { max } from 'd3-array';
+import { max, extent } from 'd3-array';
 import * as firebase from 'firebase/app';
 import 'firebase/database';
-import DataSnapshot = firebase.database.DataSnapshot;
 
 const ITEMS = 100;
 const config = {
@@ -67,7 +68,7 @@ fb.on('child_added', buffer(
     svg.select('.line')
       .data([data])
       .attr('d', valueline(<any>data));
-  }, ITEMS, (d: DataSnapshot) => d.val())
+  }, ITEMS, (d: any) => d.val())
 );
 
 
