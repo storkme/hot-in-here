@@ -2,39 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <base href="/">
 
-  <title>so take off all your woes</title>
+  <title>hot</title>
   <style>
-    body, html {
+    body, html, #wrapper {
       height: 100%;
+      width: 100%;
       margin: 0;
       padding: 0;
-      font-family: 'Josefin Sans', sans-serif;
+      box-sizing: border-box;
     }
 
-    .app-component {
-      height: 100%;
+    body {
       display: flex;
-      font-size: 10em;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-items: center;
     }
 
-    .graph {
-      position: fixed;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      height: 100%;
+    path {
+      stroke: steelblue;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: grey;
+      stroke-width: 1;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 <body>
-<app><span class="app-component">loading&hellip;</span></app>
-<script src="polyfill.bundle.js"></script>
-<script src="main.bundle.js"></script>
-</body>
+<div id="wrapper"></div>
+<script type="text/javascript" src="main.bundle.js"></script></body>
 </html>
